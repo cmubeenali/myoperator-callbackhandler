@@ -28,16 +28,13 @@ print('Socket binding operation completed')
 # With the help of listening () function
 # starts listening
 soc.listen(9)
-   
-conn, address = soc.accept()
-# print the address of connection
-print('Connected with ' + address[0] + ':' 
-      + str(address[1]))
-      
+
 while True:
+    conn, address = soc.accept()
+    # print the address of connection
+    print('Connected with ' + address[0] + ':' 
+        + str(address[1]))
     data = conn.recv(1024)
 
     print("RECEIVED: %s" % (data.decode('ascii')))
     conn.close()
-    break
-soc.close()
