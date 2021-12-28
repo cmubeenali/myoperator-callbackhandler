@@ -38,4 +38,4 @@ class App(object):
 if __name__ == '__main__':
     from werkzeug.serving import run_simple
     app=App()
-    run_simple('0.0.0.0', 6000, app, use_reloader=True,threaded=True)
+    run_simple('127.0.0.1', 6000, app, use_reloader=True,threaded=True)
