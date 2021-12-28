@@ -33,11 +33,11 @@ conn, address = soc.accept()
 # print the address of connection
 print('Connected with ' + address[0] + ':' 
       + str(address[1]))
+      
+while True:
+    data = conn.recv(1024)
 
-# while True:
-#     data = soc.recv(512)
-
-#     print("RECEIVED: %s" % data)
-#     soc.send(data)
-#     soc.close()
-#     break
+    print("RECEIVED: %s" % (data.decode('ascii')))
+    conn.close()
+    break
+soc.close()
