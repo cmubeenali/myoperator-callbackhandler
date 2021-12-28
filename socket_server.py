@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 def print_output(message):
-    with open('/mnt/workspace/workspace/frappe/myoperator_callback_tester/output.txt', 'a+') as f:
+    with open('/opt/myoperator-callbackhandler/output.txt', 'a+') as f:
         try:            
             f.seek(0)
             f.write('\n')
