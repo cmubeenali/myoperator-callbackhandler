@@ -1,8 +1,9 @@
 import socket
 import sys
+from datetime import datetime
 
 def print_output(message):
-    with open('/opt/myoperator-callbackhandler/output.txt', 'a+') as f:
+    with open('/mnt/workspace/workspace/frappe/myoperator_callback_tester/output.txt', 'a+') as f:
         try:            
             f.seek(0)
             f.write('\n')
@@ -43,9 +44,11 @@ if __name__=='__main__':
     while True:
         conn, address = soc.accept()
         # print the address of connection
-        print_output('Connected with ' + address[0] + ':' 
-            + str(address[1]))
+        
+        print_output('New connection ' + address[0] + ':' 
+            + str(address[1])+' at '+(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
         data = conn.recv(1024)
 
-        print_output("RECEIVED: %s" % (data.decode('ascii')))
+        print_output("RECEIVED_DATA : \n")
+        print_output(data.decode('ascii'))
         conn.close()
